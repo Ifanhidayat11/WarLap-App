@@ -46,4 +46,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relasi Ke Table Pengaduan
+    public function pengaduan()
+    {
+        return $this->hasMany('pengaduan', 'masyarakat_id', 'id');
+    }
+    // Nilai Balik  Ke Table User
+    public function user()
+    {
+        return $this->belongsTo('users', 'masyarakat_id', 'id');
+    }
+    // Relasi Ke Table Tanggapan
+    public function tanggapan()
+    {
+        return $this->hasMany('tanggapan', 'users_id', 'id');
+    }
 }
