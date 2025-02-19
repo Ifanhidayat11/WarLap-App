@@ -2,7 +2,8 @@
     <!-- Brand Logo -->
     <a href="/" class="brand-link border-bottom border-light">
         <div class="d-flex align-items-center px-3">
-            <img src="/dist/img/logosidebar.png" alt="Admin Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="/dist/img/logosidebar.png" alt="Admin Logo" class="brand-image img-circle elevation-3"
+                style="opacity: .8">
             <span class="brand-text font-weight-light text-white ml-2">
                 <a href="#" class="d-block">{{ auth()->user()->name }}</a>
             </span>
@@ -12,18 +13,19 @@
     <div class="sidebar">
         <!-- Sidebar Menu -->
         <nav class="mt-4">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <li class="nav-item mb-2">
-                    <a href="/dashboard" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}" 
-                       style="{{ Request::is('dashboard*') ? 'background-color: #2563eb;' : '' }}">
+                    <a href="/dashboard" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}"
+                        style="{{ Request::is('dashboard*') ? 'background-color: #2563eb;' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p class="ml-2 text-white">Dashboard</p>
                     </a>
                 </li>
-                
+
                 <li class="nav-item mb-2">
                     <a href="/masyarakat" class="nav-link {{ Request::is('masyarakat*') ? 'active' : '' }}"
-                       style="{{ Request::is('masyarakat*') ? 'background-color: #2563eb;' : '' }}">
+                        style="{{ Request::is('masyarakat*') ? 'background-color: #2563eb;' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p class="ml-2 text-white">Data Masyarakat</p>
                     </a>
@@ -31,7 +33,7 @@
 
                 <li class="nav-item mb-2">
                     <a href="/pegawai" class="nav-link {{ Request::is('pegawai*') ? 'active' : '' }}"
-                       style="{{ Request::is('pegawai*') ? 'background-color: #2563eb;' : '' }}">
+                        style="{{ Request::is('pegawai*') ? 'background-color: #2563eb;' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p class="ml-2 text-white">Petugas</p>
                     </a>
@@ -39,7 +41,7 @@
 
                 <li class="nav-item mb-2">
                     <a href="/kategori" class="nav-link {{ Request::is('kategori*') ? 'active' : '' }}"
-                       style="{{ Request::is('kategori*') ? 'background-color: #2563eb;' : '' }}">
+                        style="{{ Request::is('kategori*') ? 'background-color: #2563eb;' : '' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p class="ml-2 text-white">Kategori Pengaduan</p>
                     </a>
@@ -47,13 +49,15 @@
 
                 <li class="nav-item mb-2">
                     <a href="/laporanmasuk" class="nav-link {{ Request::is('laporanmasuk*') ? 'active' : '' }}"
-                       style="{{ Request::is('laporanmasuk*') ? 'background-color: #2563eb;' : '' }}">
+                        style="{{ Request::is('laporanmasuk*') ? 'background-color: #2563eb;' : '' }}">
                         <i class="nav-icon fas fa-envelope"></i>
                         <p class="ml-2 text-white">Laporan Masuk</p>
                     </a>
                 </li>
+
                 <li class="nav-item mb-2">
-                    <a href="{{ route('admin.profile.index') }}" class="nav-link {{ Request::is('profile*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.profile.index') }}"
+                        class="nav-link {{ Request::is('profile*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p class="ml-2 text-white">Profile</p>
                     </a>
@@ -65,9 +69,9 @@
                 <form action="{{ Route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn w-100 d-flex align-items-center text-white"
-                            style="padding: 8px 16px; border-radius: 8px; transition: all 0.3s;"
-                            onmouseover="this.style.backgroundColor='#dc2626'"
-                            onmouseout="this.style.backgroundColor='transparent'">
+                        style="padding: 8px 16px; border-radius: 8px; transition: all 0.3s;"
+                        onmouseover="this.style.backgroundColor='#dc2626'"
+                        onmouseout="this.style.backgroundColor='transparent'">
                         <i class="fa fa-sign-out-alt"></i>
                         Logout
                     </button>
@@ -80,138 +84,139 @@
 </aside>
 
 <style>
-.main-sidebar {
-    height: 100vh;
-}
+    .main-sidebar {
+        height: 100vh;
+    }
 
-.nav-link {
-    border-radius: 8px;
-    margin: 0 16px;
-    transition: all 0.3s;
-}
+    .nav-link {
+        border-radius: 8px;
+        margin: 0 16px;
+        transition: all 0.3s;
+    }
 
-.nav-link:hover:not(.active) {
-    background-color: #2563eb !important;
-}
+    .nav-link:hover:not(.active) {
+        background-color: #2563eb !important;
+    }
 
-.nav-icon {
-    font-size: 1.25rem;
-    margin-right: 8px;
-}
-<>
-.main-sidebar {
-    height: 100vh;
-    overflow-y: auto;
-}
+    .nav-icon {
+        font-size: 1.25rem;
+        margin-right: 8px;
+    }
 
-/* Mengatur scrollbar sidebar */
-.main-sidebar::-webkit-scrollbar {
-    width: 6px;
-}
+    <>.main-sidebar {
+        height: 100vh;
+        overflow-y: auto;
+    }
 
-.main-sidebar::-webkit-scrollbar-track {
-    background: #15193B;
-}
+    /* Mengatur scrollbar sidebar */
+    .main-sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
 
-.main-sidebar::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-}
+    .main-sidebar::-webkit-scrollbar-track {
+        background: #15193B;
+    }
 
-.main-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+    .main-sidebar::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
 
-/* Style lainnya tetap sama */
-.nav-link {
-    border-radius: 8px;
-    margin: 0 16px;
-    transition: all 0.3s;
-}
+    .main-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
-.nav-link:hover:not(.active) {
-    background-color: #2563eb !important;
-}
+    /* Style lainnya tetap sama */
+    .nav-link {
+        border-radius: 8px;
+        margin: 0 16px;
+        transition: all 0.3s;
+    }
 
-.nav-icon {
-    font-size: 1.25rem;
-    margin-right: 8px;
-}
-<sty>
-.main-sidebar {
-    height: 100vh;
-    overflow-y: auto;
-}
+    .nav-link:hover:not(.active) {
+        background-color: #2563eb !important;
+    }
 
-/* Mengatur scrollbar sidebar */
-.main-sidebar::-webkit-scrollbar {
-    width: 6px;
-}
+    .nav-icon {
+        font-size: 1.25rem;
+        margin-right: 8px;
+    }
 
-.main-sidebar::-webkit-scrollbar-track {
-    background: #15193B;
-}
+    <sty>.main-sidebar {
+        height: 100vh;
+        overflow-y: auto;
+    }
 
-.main-sidebar::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-}
+    /* Mengatur scrollbar sidebar */
+    .main-sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
 
-.main-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+    .main-sidebar::-webkit-scrollbar-track {
+        background: #15193B;
+    }
 
-/* Style lainnya tetap sama */
-.nav-link {
-    border-radius: 8px;
-    margin: 0 16px;
-    transition: all 0.3s;
-}
+    .main-sidebar::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
 
-.nav-link:hover:not(.active) {
-    background-color: #2563eb !important;
-}
+    .main-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
-.nav-icon {
-    font-size: 1.25rem;
-    margin-right: 8px;
-}
-.main-sidebar {
-    height: 100vh;
-    overflow-y: auto;
-}
+    /* Style lainnya tetap sama */
+    .nav-link {
+        border-radius: 8px;
+        margin: 0 16px;
+        transition: all 0.3s;
+    }
 
-/* Mengatur scrollbar sidebar */
-.main-sidebar::-webkit-scrollbar {
-    width: 6px;
-}
+    .nav-link:hover:not(.active) {
+        background-color: #2563eb !important;
+    }
 
-.main-sidebar::-webkit-scrollbar-track {
-    background: #15193B;
-}
+    .nav-icon {
+        font-size: 1.25rem;
+        margin-right: 8px;
+    }
 
-.main-sidebar::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-}
+    .main-sidebar {
+        height: 100vh;
+        overflow-y: auto;
+    }
 
-.main-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+    /* Mengatur scrollbar sidebar */
+    .main-sidebar::-webkit-scrollbar {
+        width: 6px;
+    }
 
-/* Style lainnya tetap sama */
-.nav-link {
-    border-radius: 8px;
-    margin: 0 16px;
-    transition: all 0.3s;
-}
+    .main-sidebar::-webkit-scrollbar-track {
+        background: #15193B;
+    }
 
-.nav-link:hover:not(.active) {
-    background-color: #2563eb !important;
-}
+    .main-sidebar::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
 
-.nav-icon {
-    font-size: 1.25rem;
-    margin-right: 8px;
-}
+    .main-sidebar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /* Style lainnya tetap sama */
+    .nav-link {
+        border-radius: 8px;
+        margin: 0 16px;
+        transition: all 0.3s;
+    }
+
+    .nav-link:hover:not(.active) {
+        background-color: #2563eb !important;
+    }
+
+    .nav-icon {
+        font-size: 1.25rem;
+        margin-right: 8px;
+    }
 </style>

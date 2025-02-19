@@ -62,7 +62,7 @@ class PegawaiController extends Controller
                 'textNoTelepon.digits' => 'No telepon harus 12 karakter',
                 'textAlamat.required' => 'Alamat wajib diisi',
                 'textEmail.required' => 'Email wajib diisi',
-                'textEmail.unique' =>  'Email sudah terdaftar',
+                'textEmail.unique' => 'Email sudah terdaftar',
                 'textPassword.required' => 'Password wajib diisi',
                 'textPassword.min' => 'Password minimal 6 karakter',
                 'selectJabatan.required' => 'Jabatan wajib diisi',
@@ -80,7 +80,7 @@ class PegawaiController extends Controller
             'role' => $request->input('selectJabatan'),
             'password' => bcrypt($request->input('textPassword')),
         ]);
-    
+
         return redirect()->route('pegawai.index')->with('success', 'Data pegawai berhasil ditambahkan!');
     }
     /**
@@ -112,6 +112,7 @@ class PegawaiController extends Controller
                 'textAlamat' => 'required',
                 'textEmail' => 'required|email|unique:users,email,' . $id,
                 'textPassword' => $request->textPassword ? 'min:6' : '',
+                'selectJabatan' => 'required|in:Admin,Petugas',
             ],
             [
                 'textNik.unique' => 'NIK sudah terdaftar',
@@ -126,40 +127,40 @@ class PegawaiController extends Controller
                 'textEmail.unique' => 'Email sudah terdaftar',
                 'textEmail.email' => 'Format email tidak valid',
                 'textPassword.min' => 'Password minimal 6 karakter',
+                'selectJabatan.required' => 'Jabatan wajib diisi',
+                'selectJabatan.in' => 'Jabatan tidak valid',
             ],
         );
 
-        // Temukan pegawai berdasarkan id
         $pegawai = User::find($id);
         if (!$pegawai) {
-            return redirect()->back()->with('error', 'Pegawai tidak ditemukan!');
+            return redirect()->back()->with('error', 'Pegawai tidak ditemukan!')->withInput();
         }
 
-        // Update data selain password
+        // Update data
         $pegawai->nik = $request->textNik;
         $pegawai->name = $request->textNama;
         $pegawai->jeniskelamin = $request->selectJenisKelamin;
         $pegawai->notelpon = $request->textNoTelepon;
         $pegawai->alamat = $request->textAlamat;
         $pegawai->email = $request->textEmail;
-
-        // Cek apakah password baru diinputkan dan validasi
-        if ($request->filled('textPassword') && $request->textPassword !== '' && $request->textPassword === $request->textNewPassword) {
-            $request->validate([
-                'textPassword' => 'required|min:6', // Minimal password 6 karakter
-                'textNewPassword' => 'required|same:textPassword', // Pastikan password baru dan konfirmasi sama
-            ]);
-            // Update password jika valid
-            $pegawai->password = bcrypt($request->textNewPassword);
-        }
-
-        // Update jabatan
         $pegawai->role = $request->selectJabatan;
 
-        // Simpan perubahan data
-        $pegawai->save();
+        // Cek apakah password diinputkan
+        if ($request->filled('textPassword')) {
+            if ($request->textPassword === $request->textNewPassword) {
+                $pegawai->password = bcrypt($request->textPassword);
+            } else {
+                return redirect()->back()->with('error', 'Password dan konfirmasi password tidak sama!')->withInput();
+            }
+        }
 
-        return redirect('/pegawai')->with('success', 'Data Pegawai berhasil diperbarui!');
+        try {
+            $pegawai->save();
+            return redirect()->route('pegawai.index')->with('success', 'Data pegawai berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan! Silahkan coba lagi.')->withInput();
+        }
     }
     /**
      * Remove the specified resource from storage.

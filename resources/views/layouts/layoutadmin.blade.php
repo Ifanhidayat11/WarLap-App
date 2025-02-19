@@ -21,76 +21,87 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const searchInput = document.getElementById("search");
             const entriesSelect = document.getElementById("entries");
             const rows = document.querySelectorAll("tbody tr");
-        
-            searchInput.addEventListener("input", function () {
+
+            searchInput.addEventListener("input", function() {
                 const searchTerm = this.value.toLowerCase();
                 rows.forEach(row => {
                     const text = row.innerText.toLowerCase();
                     row.style.display = text.includes(searchTerm) ? "" : "none";
                 });
             });
-        
-            entriesSelect.addEventListener("change", function () {
+
+            entriesSelect.addEventListener("change", function() {
                 const value = parseInt(this.value);
                 rows.forEach((row, index) => {
                     row.style.display = index < value ? "" : "none";
                 });
             });
         });
-        </script>        
+    </script>
+
+
 
     <style>
         .nav-link.active {
             background-color: #2563eb !important;
         }
+
         .cardwar {
-             padding: 10px; /* Kurangi padding */
-             max-height: 120px; /* Sesuaikan tinggi */
-             overflow: hidden; /* Mencegah teks keluar */
+            padding: 10px;
+            /* Kurangi padding */
+            max-height: 120px;
+            /* Sesuaikan tinggi */
+            overflow: hidden;
+            /* Mencegah teks keluar */
         }
+
         .cardwar i {
-           padding-right: 15px; /* Atur sesuai kebutuhan */
+            padding-right: 15px;
+            /* Atur sesuai kebutuhan */
         }
+
         <style>
-/* Tambahkan di bagian style yang sudah ada */
-.wrapper {
-    height: 100vh;
-    overflow: hidden;
-}
 
-.content-wrapper {
-    height: calc(100vh - 57px); /* 57px adalah tinggi navbar */
-    overflow-y: auto;
-}
+        /* Tambahkan di bagian style yang sudah ada */
+        .wrapper {
+            height: 100vh;
+            overflow: hidden;
+        }
 
-/* Mengatur scrollbar content-wrapper */
-.content-wrapper::-webkit-scrollbar {
-    width: 6px;
-}
+        .content-wrapper {
+            height: calc(100vh - 57px);
+            /* 57px adalah tinggi navbar */
+            overflow-y: auto;
+        }
 
-.content-wrapper::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
+        /* Mengatur scrollbar content-wrapper */
+        .content-wrapper::-webkit-scrollbar {
+            width: 6px;
+        }
 
-.content-wrapper::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
-}
+        .content-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-.content-wrapper::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+        .content-wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
 
-/* Mengatur tinggi body */
-body {
-    height: 100vh;
-    overflow: hidden;
-}
-</style>
+        .content-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Mengatur tinggi body */
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
     </style>
 </head>
 
@@ -101,7 +112,8 @@ body {
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
@@ -133,9 +145,9 @@ body {
 
             <!-- Main content -->
             @yield('content')
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
 
@@ -154,7 +166,7 @@ body {
     <script src="/dist/js/demo.js"></script>
     <!-- page script -->
     <script>
-        $(function () {
+        $(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "autoWidth": false,

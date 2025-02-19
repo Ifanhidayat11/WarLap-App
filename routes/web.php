@@ -19,36 +19,19 @@ use App\Http\Controllers\HomeController;
 // use App\Http\Controllers\LoginPetugasController;
 
 /*
-|-------------------------------------------------------------------------- 
-| Web Routes 
-|-------------------------------------------------------------------------- 
-| 
-| Here is where you can register web routes for your application. These 
-| routes are loaded by the RouteServiceProvider and all of them will 
-| be assigned to the "web" middleware group. Make something great! 
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-Route::get('/', function(){
+Route::get('/', function () {
     return view('pages.users.index');
 });
-
-
-
-// Route::get('/masyarakat/{id}/edit', [MasyarakatController::class, 'edit'])->name('masyarakat.edit');
-// Route::put('/masyarakat/{id}', [MasyarakatController::class, 'update'])->name('masyarakat.update');
-// Route::delete('/masyarakat/{id}', [MasyarakatController::class, 'destroy'])->name('masyarakat.destroy');
-
-// // Routes for Pegawai (Similar to profile)
-// Route::prefix('petugas')->middleware('auth')->group(function () {
-//     Route::get('/', [PegawaiController::class, 'index'])->name('pegawai.index');
-//     Route::get('/create', [PegawaiController::class, 'create'])->name('pegawai.create');
-//     Route::post('/', [PegawaiController::class, 'store'])->name('pegawai.store');  // Menambahkan route store
-//     Route::get('/{id}', [PegawaiController::class, 'show'])->name('pegawai.show');
-//     Route::get('/edit/{id}', [PegawaiController::class, 'edit'])->name('pegawai.edit');
-//     Route::put('/update/{id}', [PegawaiController::class, 'update'])->name('pegawai.update');
-//     Route::delete('/destroy/{id}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy'); // Menambahkan route destroy
-// });
 
 // Routes for kategori pengaduan
 Route::resource('/kategori', KategoriPengaduanController::class);
@@ -59,15 +42,11 @@ Route::resource('/kategori', KategoriPengaduanController::class);
 // Route::put('/laporanmasuk/{id}', [LaporanMasukController::class, 'updateStatus'])->name('laporanmasuk.updateStatus');
 
 // Routes for generate report
-Route::get('/generatereport', [GenerateReportController::class, 'index']);
-Route::get('/generatereport/periode', [GenerateReportController::class, 'periode']);
-Route::get('/generatereport/rekap', [GenerateReportController::class, 'rekap']);
 
 // Routes for profile
 // Route::prefix('admin')->middleware('auth')->group(function () {
 
 // });
-
 
 // // Login Admin Routes
 // Route::get('/loginpetugas', [LoginPetugasController::class, 'index'])->name('loginpetugas');
@@ -80,7 +59,6 @@ Route::get('/generatereport/rekap', [GenerateReportController::class, 'rekap']);
 // Route::post('/authmasyarakat', [LoginMasyarakatController::class, 'authmasyarakat']);
 // Route::post('/logoutmasyarakat', [LoginMasyarakatController::class, 'logout'])->name('logoutmasyarakat');
 // Route::middleware('auth')->get('/pengaduanku', [UserPengaduankuController::class, 'index'])->name('pengaduanku.index');
-
 
 // // Rute untuk halaman profil
 // Route::middleware('auth')->get('/profile', [UserProfileController::class, 'index'])->name('profile.index');
@@ -99,7 +77,9 @@ Route::middleware('auth')->group(function () {
 // Hapus route login lama dan ganti dengan yang baru
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->name('logout')
+    ->middleware('auth');
 Route::get('/registermasyarakat', [RegisterMasyarakatController::class, 'showRegisterForm'])->name('registermasyarakat');
 Route::post('/registermasyarakat', [RegisterMasyarakatController::class, 'register'])->name('masyarakat.register');
 
@@ -114,6 +94,9 @@ Route::middleware(['auth', 'role:admin,petugas'])->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('admin.profile.edit');
     Route::put('/profile/update/{id}', [ProfileController::class, 'update'])->name('admin.profile.update');
     Route::put('/profile/update-password/{id}', [ProfileController::class, 'updatePassword'])->name('admin.profile.updatePassword');
+    // Route::get('/generatereport', [GenerateReportController::class, 'index']);
+    // Route::get('/generatereport/periode', [GenerateReportController::class, 'periode'])->name('generatereport.periode');
+    // Route::get('/generatereport/rekap', [GenerateReportController::class, 'rekap']);
 });
 
 // Route khusus untuk Petugas
@@ -132,7 +115,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // Route untuk Masyarakat
 Route::middleware(['auth', 'role:masyarakat'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');  // Tambahkan ini
+    Route::get('/home', [HomeController::class, 'index'])->name('home'); // Tambahkan ini
     Route::resource('/pengaduanku', UserPengaduankuController::class);
     Route::get('/profile', [UserProfileController::class, 'index'])->name('profile.index');
     Route::post('/profile/update', [UserProfileController::class, 'update'])->name('profile.update');

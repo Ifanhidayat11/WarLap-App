@@ -56,7 +56,7 @@
                     @foreach ($laporan as $index => $item)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td>{{ \Carbon\Carbon::parse($item->tanggalpengaduan)->format('d M Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($item->tanggalpengaduan)->translatedFormat('d F Y') }}</td>
                             <td>{{ Str::limit($item->isipengaduan, 100) }}</td>
                             <td>
                                 @if ($item->foto)

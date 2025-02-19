@@ -32,9 +32,9 @@
                                 <td>{{$masyarakat->alamat}}</td>
                                 <td>
                                     <!-- Tombol Edit -->
-                                    <a href="/masyarakat/{{$masyarakat->id}}/edit" class="btn btn-warning btn-xs" title="Edit Masyarakat">
+                                    {{-- <a href="/masyarakat/{{$masyarakat->id}}/edit" class="btn btn-warning btn-xs" title="Edit Masyarakat">
                                         <li class="fa fa-edit"></li>
-                                    </a>
+                                    </a> --}}
                                     {{-- <!-- Tombol Detail -->
                                      <a href="/masyarakat/{{ $masyarakat->id }}" class="btn btn-primary btn-xs"
                                         title="Detail Masyarakat">

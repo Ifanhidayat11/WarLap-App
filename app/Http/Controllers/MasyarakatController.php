@@ -85,11 +85,11 @@ class MasyarakatController extends Controller
     {
         // Cek apakah ID valid
         $masyarakat = User::where('id', $id)->where('role', 'Masyarakat')->first();
-        
+
         if (!$masyarakat) {
             return redirect()->route('masyarakat.index')->with('error', 'Data masyarakat tidak ditemukan!');
         }
-        
+
         return view('pages.admin.masyarakat.edit', [
             'title' => 'APM | Masyarakat',
             'header' => 'Masyarakat',
@@ -98,7 +98,7 @@ class MasyarakatController extends Controller
             'dataMasyarakat' => $masyarakat,
         ]);
     }
-    
+
     public function update(Request $request, string $id)
     {
         // Validasi data yang diinput
@@ -125,15 +125,15 @@ class MasyarakatController extends Controller
                 'textEmail.unique' => 'Email sudah terdaftar',
                 'textEmail.email' => 'Format email tidak valid',
                 'textPassword.min' => 'Password minimal 6 karakter',
-            ]
+            ],
         );
-    
-        $user = User::find($id); // Ambil user berdasarkan id
-        
+
+        $user = User::find($id);
+
         if (!$user) {
             return redirect()->route('masyarakat.index')->with('error', 'Data masyarakat tidak ditemukan!');
         }
-    
+
         // Update data
         $user->nik = $request->textNik;
         $user->name = $request->textNama;
@@ -141,22 +141,23 @@ class MasyarakatController extends Controller
         $user->notelpon = $request->textNoTelepon;
         $user->alamat = $request->textAlamat;
         $user->email = $request->textEmail;
-    
+
         // Cek apakah password diinputkan
-        if ($request->filled('textPassword') && $request->textPassword !== '') {
+        if ($request->filled('textPassword')) {
             // Validasi konfirmasi password
             if ($request->textPassword === $request->textNewPassword) {
                 $user->password = bcrypt($request->textPassword);
             } else {
-                return redirect()->back()->with('error', 'Password dan konfirmasi password tidak sama!');
+                return redirect()->back()->with('error', 'Password dan konfirmasi password tidak sama!')->withInput();
             }
         }
-    
-        // Simpan perubahan
-        $user->save();
-    
-        // Redirect dengan pesan sukses
-        return redirect()->route('masyarakat.index')->with('success', 'Data masyarakat berhasil diperbarui!');
+
+        try {
+            $user->save();
+            return redirect()->route('masyarakat.index')->with('success', 'Data masyarakat berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan! Silahkan coba lagi.')->withInput();
+        }
     }
 
     /**
