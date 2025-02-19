@@ -1,11 +1,11 @@
 @extends('layouts.layoutuser')
+
 @section('contentuser')
 <section class="inner-page">
     <div class="container table-responsive">
-      <a href="/pengaduanku/create" class="btn btn-success btn-md"> Buat Pengaduan</a>
+      <h4 class="mb-4">Data Pengaduan Anda</h4>
       <hr>
-      <p>
-        <table class="table table-responsive table-hover">
+      <table class="table table-responsive table-hover">
           <thead>
             <tr>
               <th>#</th>
@@ -16,16 +16,17 @@
             </tr>
           </thead>
           <tbody>
+            @foreach ($pengaduans as $pengaduan)
             <tr>
-              <td>1</td>
-              <td>Limbah Pabrik ABCD</td>
-              <td>Pencemaran</td>
-              <td>Prosess</td>
-              <td><a href="user-detail-pengaduanku.html" class="btn btn-primary btn-sm">Detail</a></td>
+              <td>{{ $loop->iteration }}</td>
+              <td>{{ $pengaduan->judul }}</td>
+              <td>{{ $pengaduan->kategoripengaduan ? $pengaduan->kategoripengaduan->namakategori : 'N/A' }}</td>
+              <td>{{ $pengaduan->status }}</td>
+              <td><a href="{{ route('pengaduanku.show', $pengaduan->id) }}" class="btn btn-primary btn-sm">Detail</a></td>
             </tr>
+            @endforeach
           </tbody>
         </table>
-      </p>
     </div>
-  </section>
+</section>
 @endsection

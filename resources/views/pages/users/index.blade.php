@@ -2,33 +2,49 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>APM Masyarakat</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>WarLap</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="/assetsuser/img/favicon.png" rel="icon">
-  <link href="/assetsuser/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="/assetsuser/img/favicon.png" rel="icon">
+    <link href="/assetsuser/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <!-- Vendor CSS Files -->
-  <link href="/assetsuser/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/assetsuser/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/assetsuser/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="/assetsuser/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/assetsuser/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="/assetsuser/css/style.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assetsuser/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assetsuser/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assetsuser/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/assetsuser/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assetsuser/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- =======================================================
+    <!-- Template Main CSS File -->
+    <link href="/assetsuser/css/style.css" rel="stylesheet">
+
+    <style>
+        .footer {
+            background-color: #91A7D0;
+            padding: 40px 0;
+        }
+
+        .footer .col h5 {
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- =======================================================
   * Template Name: eNno - v4.10.0
   * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
   * Author: BootstrapMade.com
@@ -38,252 +54,138 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">APM</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+            <h1 class="logo"><a href="index.html">WarLap</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#featured-services">information</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Kontak Kami</a></li>
-          <li><a class="nav-link scrollto" href="#register">Register / Login</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Aplikasi Pengaduan Online</h1>
-          <h5>Sampaikan aduanmu sekarang, dan kami siap menanggapi secara cepat.</h5>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="/assetsuser/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-laptop"></i></div>
-              <h4 class="title"><a href="">Pelayanan 24 Jam</a></h4>
-              <p class="description">Pelayanan selama 24 jam, sampaikan aduan anda kapan saja, dimana saja dan jam
-                berapa saja.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title"><a href="">Identitas terlindungi</a></h4>
-              <p class="description">Setiap data Identitas pengaduan yang dilakukan oleh masyarakat kami lindungi secara
-                aman </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-              <h4 class="title"><a href="">Penanganan Cepat</a></h4>
-              <p class="description">Penanganan pengaduan yang di sampaikan, akan kami proses secara cepat</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Featured Services Section -->
-
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
-      <div class="container mt-5">
-
-        <div class="row counters">
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Masyarakat</p>
-          </div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Pengaduan</p>
-          </div>
-
-          <div class="col-lg-4 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>Kategori Pengaduan</p>
-          </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#Kontak">Tentang Kami</a></li>
+                    <li><a class="nav-link scrollto" href="#Kontak">Kontak</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
 
         </div>
+    </header><!-- End Header -->
 
-      </div>
-    </section><!-- End Counts Section -->
-    <section id="register" class="register">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 pt-4 pt-lg-0">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title text-center">Login</h4>
-              </div>
-              <div class="card-body">
-                <div class="form form-group">
-                  <label for="textEmail">Email</label>
-                  <input type="email" class="form form-control" id="textEmail">
+    <!-- ======= Hero Section ======= -->
+    <!-- Hero Section -->
+    <section id="hero" class="d-flex align-items-center">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            // Menampilkan SweetAlert jika ada session success
+            @if (session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK',
+                    showClass: {
+                        popup: 'animate_animated animate_fadeInUp' // animasi muncul
+                    },
+                    hideClass: {
+                        popup: 'animate_animated animate_fadeOutDown' // animasi hilang
+                    },
+                    timer: 5000 // Waktu notifikasi muncul (dalam milidetik)
+                });
+            @endif
+
+            // Menampilkan SweetAlert jika ada error
+            @if ($errors->any())
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: '{{ $errors->first() }}',
+                    confirmButtonText: 'OK',
+                    showClass: {
+                        popup: 'animate_animated animate_fadeInUp'
+                    },
+                     hideClass: {
+                        popup: 'animate_animated animate_fadeOutDown'
+                    },
+                    timer: 5000
+                });
+            @endif
+        </script>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                    <h1>Suara Anda adalah Perubahan</h1>
+                    <h5>Suara Anda, Perubahan Kita – Laporkan, Kami Tindak Lanjuti!</h5>
+                    <div class="input-group mb-3">
+                        <a href="#Suarakan" class="btn-lapor">Lapor</a>
+                    </div>
                 </div>
-                <div class="form form-group">
-                  <label for="textPasswordLogin">Email</label>
-                  <input type="password" class="form form-control" id="textPasswordLogin">
+                <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                    <img src="/assetsuser/img/hero-img.png" class="img-fluid animated" alt="">
                 </div>
-                <a href="user-pengaduanku.html" class="btn btn-success btn-md mt-3 d-flex"><i class="icon bi bi-lock"></i> Login</a>
-              </div>
             </div>
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title text-center">Form Register</h4>
-              </div>
-              <div class="card-body">
-                <div class="form form-group">
-                  <label for="textNik">NIK</label>
-                  <input type="text" name="textNik" class="form form-control" placeholder="contoh : 3201234556777">
-                </div>
-                <div class="form form-group mt-3">
-                  <label for="textNama">Nama</label>
-                  <input type="text" name="textNama" class="form form-control" placeholder="Nama Lengkap">
-                </div>
-                <div class="form form-group mt-3">
-                  <label for="selectJenisKelamin">Jenis Kelamin</label>
-                  <select name="selectJenisKelamin" class="form form-control">
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                  </select>
-                </div>
-                <div class="form form-group mt-3">
-                  <label for="textNomorTelepon">Nomor Telepon</label>
-                  <input type="text" name="textNomorTelepon" class="form form-control"
-                    placeholder="contoh : +62388584494949">
-                </div>
-
-                <div class="form form-group">
-                  <label for="textAlamat">Alamat</label>
-                  <input type="text" name="textAlamat" class="form form-control" placeholder="alamat lengkap">
-                </div>
-                <div class="form form-group mt-3">
-                  <label for="textEmail">Email</label>
-                  <input type="email" name="textEmail" class="form form-control" placeholder="contoh : apm@gmail.com">
-                </div>
-                <div class="form form-group mt-3">
-                  <label for="textPassword">Password</label>
-                  <input type="password" name="textPassword" class="form form-control">
-                </div>
-                <!-- <div class="form form-group mt-3 d-flex align-items-center justify-content-between"> -->
-                <button type="button" class="btn btn-success btn-md mt-4 btn-block"><i class="bi bi-card-checklist"></i> Register</button>
-                <!-- </div> -->
-              </div>
-            </div>
-
-          </div>
         </div>
-      </div>
-
     </section>
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <span>Kontak Kami</span>
-          <h2>Kontak Kami</h2>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Alamat:</h4>
-                <p>Jl. Banyu Mengalir No. 123 Jawa Barat KP. 12345</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@apm.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call Center:</h4>
-                <p>+1 1233456788</p>
-              </div>
-
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>APM</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/enno-free-simple-bootstrap-template/ -->
-        Template By <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+    <!-- Wave Section -->
+    <div style="position: relative; background: #B7C9F2;">
+        <svg style="position: relative; display: block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff"
+                d="M0,128L80,144C160,160,320,192,480,192C640,192,800,160,960,144C1120,128,1280,128,1360,128L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
+        </svg>
     </div>
-  </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+    <!-- Suarakan Section -->
+    <section id="Suarakan" class="container my-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="fw-bold display-5">Suarakan Aduan <br>Anda!</h2>
+            <div>
+                <a href="{{ Route('login') }}" class="btn btn-dark me-2">
+                    <i class="fas fa-sign-in-alt"></i> Masuk
+                </a>
+                <a href="{{ Route('registermasyarakat') }}" class="btn btn-dark">
+                    <i class="fas fa-user-plus"></i> Daftar
+                </a>
+            </div>
+        </div>
+    </section>
+    <main id="main">
+        <footer id="Kontak" class="footer">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-6 mb-3">
+                        <h5>Tentang Kami</h5>
+                        <p>Aplikasi Pengaduan Masyarakat hadir sebagai solusi inovatif bagi warga untuk menyampaikan
+                            keluhan, masukan, dan aspirasi secara cepat, mudah, dan transparan. Dengan sistem yang
+                            terintegrasi, kami memastikan setiap laporan yang masuk akan diterima, diproses, dan
+                            ditindaklanjuti oleh pihak yang berwenang.</p>
+                        <hr>💡 Laporkan, Pantau, dan Bersama Kita Wujudkan Perubahan!
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <h5>Kontak</h5>
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Tasikmalaya</p>
+                        <p><i class="fas fa-phone"></i> 08823792993</p>
+                        <p><i class="fas fa-envelope"></i> info@wanderform.id</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-  <!-- Vendor JS Files -->
-  <script src="/assetsuser/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="/assetsuser/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/assetsuser/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/assetsuser/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/assetsuser/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/assetsuser/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="/assetsuser/js/main.js"></script>
+        <!-- Vendor JS Files -->
+        <script src="/assetsuser/vendor/purecounter/purecounter_vanilla.js"></script>
+        <script src="/assetsuser/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/assetsuser/vendor/glightbox/js/glightbox.min.js"></script>
+        <script src="/assetsuser/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="/assetsuser/vendor/swiper/swiper-bundle.min.js"></script>
+        <script src="/assetsuser/vendor/php-email-form/validate.js"></script>
 
+        <!-- Template Main JS File -->
+        <script src="/assetsuser/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

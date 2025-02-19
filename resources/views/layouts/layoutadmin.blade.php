@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{$title}}</title>
+    <title>Warlap</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +19,79 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("search");
+            const entriesSelect = document.getElementById("entries");
+            const rows = document.querySelectorAll("tbody tr");
+        
+            searchInput.addEventListener("input", function () {
+                const searchTerm = this.value.toLowerCase();
+                rows.forEach(row => {
+                    const text = row.innerText.toLowerCase();
+                    row.style.display = text.includes(searchTerm) ? "" : "none";
+                });
+            });
+        
+            entriesSelect.addEventListener("change", function () {
+                const value = parseInt(this.value);
+                rows.forEach((row, index) => {
+                    row.style.display = index < value ? "" : "none";
+                });
+            });
+        });
+        </script>        
+
+    <style>
+        .nav-link.active {
+            background-color: #2563eb !important;
+        }
+        .cardwar {
+             padding: 10px; /* Kurangi padding */
+             max-height: 120px; /* Sesuaikan tinggi */
+             overflow: hidden; /* Mencegah teks keluar */
+        }
+        .cardwar i {
+           padding-right: 15px; /* Atur sesuai kebutuhan */
+        }
+        <style>
+/* Tambahkan di bagian style yang sudah ada */
+.wrapper {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    height: calc(100vh - 57px); /* 57px adalah tinggi navbar */
+    overflow-y: auto;
+}
+
+/* Mengatur scrollbar content-wrapper */
+.content-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.content-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.content-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.content-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Mengatur tinggi body */
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+</style>
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -46,7 +119,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>{{ $header }}</h1>
+                            <h1>{{ $header ?? 'Judul Default' }}</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -63,13 +136,6 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 1
-        </div>
-        <strong>Copyright &copy; 2023 Template By <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-        reserved.
-    </footer>
     </div>
     <!-- ./wrapper -->
 
@@ -104,6 +170,7 @@
             });
         });
     </script>
+    @yield('js')
 </body>
 
 </html>

@@ -23,29 +23,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($kategoriPengaduan as $kategori)
                             <tr>
-                                <td>1</td>
-                                <td>Kekerasan</td>
-                                <td>Deskripsi tentang jenis pengaduan kekerasan</td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$kategori->namakategori}}</td>
+                                <td>{{$kategori->deskripsi}}</td>
                                 <td>
-                                    <a href="kategori/1/edit" class="btn btn-warning btn-xs"
-                                        title="Edit Masyarakat">
-                                        <li class="fa fa-edit"></li>
-                                    </a>
+                                    <a href="/kategori/{{$kategori->id}}/edit" class="btn btn-warning btn-xs" title="Edit Kategori"><li class="fa fa-edit"></li></a>
+                                    {{-- <a href="" class="btn btn-primary btn-xs" title="Detail Kategori"><li class="fa fa-list"></li></a> --}}
+                                    <form action="{{ route('kategori.destroy', $kategori->id) }}" method="POST"
+                                        style="display:inline;" onsubmit="return confirmDelete()">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-xs"
+                                            title="Delete Kategori">
+                                            <li class="fa fa-trash"></li>
+                                        </button>
+                                    </form>
+                                    <script>
+                                        function confirmDelete() {
+                                            return confirm("Apakah Anda yakin ingin menghapus data masyarakat ini?");
+                                        }
+                                    </script>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Pencemaran</td>
-                                <td>Deskripsi tentang jenis pengaduan Pencemaran Lingkungan</td>
-                                <td>
-                                    <a href="kategori-add.html" class="btn btn-warning btn-xs"
-                                        title="Edit Masyarakat">
-                                        <li class="fa fa-edit"></li>
-                                    </a>
-                                </td>
-                            </tr>
-                            
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -8,16 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Tanggapan extends Model
 {
     use HasFactory;
-    protected $fillable =['users_id', 'pengaduan_id', 'tanggaltanggapan', 'tanggapan'];
+
     protected $table = 'tanggapan';
-    // Nilai Balik  Relasi Ke Pengaduan
+
+    protected $fillable = [
+        'users_id',
+        'pengaduan_id',
+        'tanggal_tanggapan',
+        'tanggapan'
+    ];
+
+    protected $casts = [
+        'tanggal_tanggapan' => 'date'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
+
     public function pengaduan()
     {
-        return $this->belongsTo('pengaduan', 'pengaduan_id', 'id');
-    }
-    // Niali Balik Relasi Ke Table Users
-    public function users()
-    {
-        return $this->belongsTo('users', 'users_id', 'id');
+        return $this->belongsTo(Pengaduan::class, 'pengaduan_id');
     }
 }

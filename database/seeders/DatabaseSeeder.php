@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $dataNewAdmin =[
-            'nik'       =>'123456',
-            'name'      =>'Kresna Dermawan',
+            'nik'       =>'0928321321',
+            'name'      =>'Kasino',
             'jeniskelamin'  =>'Laki-Laki',
-            'alamat'        =>'Bantardawa',
-            'notelpon'     =>'083872717302',
+            'alamat'        =>'wwwww',
+            'notelpon'     =>'0863723212',
             'role'          =>'Admin',
-            'email'         =>'kresna@gmail.com',
-            'password'      =>bcrypt('1928')
+            'email'         =>'Kasino@gmail.com',
+            'password'      =>bcrypt('123')
         ];
         User::create($dataNewAdmin);
     }

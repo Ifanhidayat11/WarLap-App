@@ -12,6 +12,17 @@ class Authenticate extends Middleware
      */
     protected function redirectTo(Request $request): ?string
     {
-        return $request->expectsJson() ? null : route('login');
+        // Jika request ini mengharuskan login admin
+        if ($request->is('dashboard') || $request->is('petugas/*')) {
+            return route('loginadmin');  // Redirect ke login admin
+        }
+
+        // Jika request ini mengharuskan login masyarakat
+        if ($request->is('pengaduanku/*') || $request->is('profileuser') || $request->is('laporanmasuk/*')) {
+            return route('login');  // Redirect to the masyarakat login page
+        }
+
+        // Default redirect for unauthenticated users, adjust as necessary for your app.
+        return route('login'); // Ensure this points to the masyarakat login page.
     }
 }

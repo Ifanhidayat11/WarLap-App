@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriPengaduan;
 use Illuminate\Http\Request;
 
 class KategoriPengaduanController extends Controller
@@ -11,11 +12,16 @@ class KategoriPengaduanController extends Controller
      */
     public function index()
     {
+        // Mengambil semua data kategori dari database
+        $kategoriPengaduan = KategoriPengaduan::all();
+
+        // Mengirim data kategori ke view
         return view('pages.admin.kategori.index', [
-            'title'     => 'APM | Kategori',
-            'header'        =>'Kategori',
-            'breadcrumb1'   =>'Kategori',
-            'breadcrumb2'   =>'Index'
+            'title'        => 'APM | Kategori',
+            'header'       => 'Kategori',
+            'breadcrumb1'  => 'Kategori',
+            'breadcrumb2'  => 'Index',
+            'kategoriPengaduan' => $kategoriPengaduan // Mengirim data kategori
         ]);
     }
 
@@ -25,10 +31,10 @@ class KategoriPengaduanController extends Controller
     public function create()
     {
         return view('pages.admin.kategori.create', [
-            'title'     => 'APM | Kategori',
-            'header'        =>'Kategori',
-            'breadcrumb1'   =>'Kategori',
-            'breadcrumb2'   =>'create'
+            'title'        => 'APM | Kategori',
+            'header'       => 'Kategori',
+            'breadcrumb1'  => 'Kategori',
+            'breadcrumb2'  => 'Create'
         ]);
     }
 
@@ -37,15 +43,19 @@ class KategoriPengaduanController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'textNamaKategori' => 'required',
+            'textDeskripsi' => 'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        // Menyimpan data kategori ke dalam database
+        KategoriPengaduan::create([
+            'namakategori' => $request->textNamaKategori,
+            'deskripsi' => $request->textDeskripsi
+        ]);
+
+        // Mengalihkan ke halaman kategori setelah data berhasil disimpan
+        return redirect('/kategori');
     }
 
     /**
@@ -53,11 +63,15 @@ class KategoriPengaduanController extends Controller
      */
     public function edit(string $id)
     {
+        // Mengambil data kategori berdasarkan ID
+        $kategori = KategoriPengaduan::findOrFail($id);
+
         return view('pages.admin.kategori.edit', [
-            'title'     => 'APM | Kategori',
-            'header'        =>'Kategori',
-            'breadcrumb1'   =>'Kategori',
-            'breadcrumb2'   =>'Edit'
+            'title'        => 'APM | Kategori',
+            'header'       => 'Kategori',
+            'breadcrumb1'  => 'Kategori',
+            'breadcrumb2'  => 'Edit',
+            'dataKategoriPengaduan' => kategoriPengaduan::where('id', $id)->first()
         ]);
     }
 
@@ -66,7 +80,23 @@ class KategoriPengaduanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'textNamaKategori' => 'required',
+            'textDeskripsi' => 'required'
+        ]);
+
+        // Menemukan kategori berdasarkan ID
+        $kategori = KategoriPengaduan::findOrFail($id);
+
+        // Memperbarui data kategori
+        $kategori->update([
+            'namakategori' => $request->textNamaKategori,
+            'deskripsi' => $request->textDeskripsi
+        ]);
+
+        // Mengalihkan ke halaman kategori setelah data berhasil diperbarui
+        return redirect('/kategori');
     }
 
     /**
@@ -74,6 +104,11 @@ class KategoriPengaduanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Menghapus kategori berdasarkan ID
+        $kategori = KategoriPengaduan::findOrFail($id);
+        $kategori->delete();
+
+        // Mengalihkan ke halaman kategori setelah data dihapus
+        return redirect('/kategori');
     }
 }

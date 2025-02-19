@@ -1,4 +1,5 @@
 @extends('layouts.layoutadmin')
+
 @section('content')
 <section class="content">
     <div class="row">
@@ -6,8 +7,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Data Pegawai</h3>
-                    <a href="pegawai/create" class="btn float-right btn-outline-secondary btn-md">
-                        <li class="fa fa-plus"></li> Add Data Pegawai
+                    <a href="{{ route('pegawai.create') }}" class="btn float-right btn-outline-secondary btn-md">
+                        <li class="fa fa-plus"></li> Tambahkan Data Pegawai
                     </a>
                 </div>
                 <!-- /.card-header -->
@@ -24,42 +25,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($dataPegawai as $pegawai)
                             <tr>
-                                <td>1</td>
-                                <td>3207172222000000</td>
-                                <td>Lukman</td>
-                                <td>Admin</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $pegawai->nik }}</td>
+                                <td>{{ $pegawai->name }}</td>
+                                <td>{{ $pegawai->role }}</td>
                                 <td>
-                                    <a href="pegawai/1/edit" class="btn btn-warning btn-xs"
-                                        title="Edit Masyarakat">
+                                    <a href="{{ route('pegawai.edit', $pegawai->id) }}" class="btn btn-warning btn-xs" title="Edit Pegawai">
                                         <li class="fa fa-edit"></li>
                                     </a>
+                                    <!-- Tombol untuk menghapus pegawai -->
+                                    <form action="{{ route('pegawai.destroy', $pegawai->id) }}" method="POST"
+                                        style="display:inline;" onsubmit="return confirmDelete()">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-xs" title="Delete Pegawai">
+                                            <li class="fa fa-trash"></li>
+                                         </button>
+                                        </form>
+                                        <script>
+                                        function confirmDelete() {
+                                            return confirm('Apakah Anda yakin ingin menghapus data petugas ini?');
+                                        }
+                                        </script>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>3207172222000000</td>
-                                <td>Fery</td>
-                                <td>Petugas</td>
-                                <td>
-                                    <a href="pegawai-detail.html" class="btn btn-warning btn-xs"
-                                        title="Edit Masyarakat">
-                                        <li class="fa fa-edit"></li>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>3207172222000000</td>
-                                <td>Samsu</td>
-                                <td>Admin</td>
-                                <td>
-                                    <a href="pegawai-detail.html" class="btn btn-warning btn-xs"
-                                        title="Edit Masyarakat">
-                                        <li class="fa fa-edit"></li>
-                                    </a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

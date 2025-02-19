@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,19 +46,33 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Accessor untuk memeriksa apakah user adalah petugas
+    public function getPetugasAttribute()
+    {
+        return $this->role === 'petugas';
+    }
+
+    // Accessor untuk memeriksa apakah user adalah admin
+    public function getAdminAttribute()
+    {
+        return $this->role === 'admin';
+    }
+
+    // Accessor untuk memeriksa apakah user adalah masyarakat
+    public function getMasyarakatAttribute()
+    {
+        return $this->role === 'masyarakat';
+    }
+
     // Relasi Ke Table Pengaduan
     public function pengaduan()
     {
-        return $this->hasMany('pengaduan', 'masyarakat_id', 'id');
+        return $this->hasMany('App\Models\Pengaduan', 'masyarakat_id', 'id');
     }
-    // Nilai Balik  Ke Table User
-    public function user()
-    {
-        return $this->belongsTo('users', 'masyarakat_id', 'id');
-    }
+
     // Relasi Ke Table Tanggapan
     public function tanggapan()
     {
-        return $this->hasMany('tanggapan', 'users_id', 'id');
+        return $this->hasMany('App\Models\Tanggapan', 'users_id', 'id');
     }
 }

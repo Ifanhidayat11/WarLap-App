@@ -8,16 +8,35 @@ use Illuminate\Database\Eloquent\Model;
 class Pengaduan extends Model
 {
     use HasFactory;
-    protected $fillable =['masyarakat_id', 'kategori_id', 'tanggalpengaduan', 'isipengaduan', 'foto', 'status'];
-    protected $table ='pengaduan';
-    // Nilai Balik Relasi Ke Table KategoriPengaduan
+
+    protected $table = 'pengaduan';
+
+    protected $fillable = ['masyarakat_id', 'judul', 'kategori_id', 'tanggalpengaduan', 'isipengaduan', 'foto', 'status'];
+
+    protected $dates = ['tanggalpengaduan'];
+
+    public static function getCountByStatus($status)
+    {
+        return self::where('status', $status)->count();
+    }
+
+    public static function getBelumDitanggapiCount()
+    {
+        return self::whereDoesntHave('tanggapan')->count();
+    }
+
     public function kategoripengaduan()
     {
-        return $this->belongsTo('kategoripengaduan', 'kategori_id', 'id');
+        return $this->belongsTo(KategoriPengaduan::class, 'kategori_id', 'id');
     }
-    // Relasi Ke Tanggapan
+
     public function tanggapan()
     {
-        return $this->hasMany('tanggapan', 'pengaduan_id', 'id');
+        return $this->hasMany(Tanggapan::class, 'pengaduan_id', 'id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'masyarakat_id', 'id');
     }
 }
